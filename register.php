@@ -1,6 +1,6 @@
 <html>
 <head>
-	<title>Welcome to Slotify!</title>
+	<title>Welcome to Spotify!</title>
 </head>
 <body>
     <h1>To continue, log in to Spotify.</h1>
@@ -71,6 +71,8 @@
             <input type="checkbox" id="rememberme" name="rememberme" value="">
             <label for="rememberme">I agree to the Spotify terms & conditions and Privacy Policy.</label><br>
             </p>
+			<p>By clicking on Sign up, you agree to Spotify's <a href="#">Forgot your password?</a></p>
+			<p>To learn more about how Spotify collects, uses, shares and protects<br> your personal data please read Spotify's <a href="#">Privacy Policy.</a></p>
 
 
 			<button type="submit" name="loginButton">SIGN UP</button>
