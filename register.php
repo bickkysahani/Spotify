@@ -1,11 +1,30 @@
+<?php
+	include("includes/classes/Account.php");
+	include("includes/classes/Constants.php");
+
+	$account = new Account();
+
+	include("includes/handlers/register-handler.php");
+	include("includes/handlers/login-handler.php");
+
+	function getInputValue($name) {
+		if(isset($_POST[$name])) {
+			echo $_POST[$name];
+		}
+	}
+?>
+
+
 <html>
 <head>
 	<title>Welcome to Spotify!</title>
 </head>
 <body>
-    <h1>To continue, log in to Spotify.</h1>
+    	
 	<div id="inputContainer">
-		<form id="loginForm" action="register.php" method="POST">
+
+		<h1>To continue, log in to Spotify.</h1>
+		<form id="loginForm" action="register.php" method="POST"> <!-- login form starts from here -->
 			<h2>Login to your account</h2>
 			<p>
 				<label for="loginUsername">Email address or username </label>
@@ -17,14 +36,14 @@
 			</p>
             <p><a href="#">Forgot your password?</a></p>
             <p><input type="checkbox" id="rememberme" name="rememberme" value="">
-<label for="rememberme">Remember me</label><br></p>
+			<label for="rememberme">Remember me</label><br></p>
 			<button type="submit" name="loginButton">LOG IN</button>
 			<p>Don't have an account?</p>
             <button type="submit" name="signupButton">SIGN UP FOR SPOTIFY</button>
-		</form>
-
-<h1>Sign up for free to start listening.</h1>
-        <form id="registerForm" action="register.php" method="POST">
+		</form> <!-- login form ends here -->
+ 
+		<h1>Sign up for free to start listening.</h1>
+        <form id="registerForm" action="register.php" method="POST"> <!--register form starts from here -->
 			<h2>Create your free account</h2>
 			<p>
 				<label for="email">What's your email?</label>
@@ -47,16 +66,16 @@
             </p>
             <p>
 				<label for="dob">What's your date of birth?</label>
-				<input id="dob" name="dob" type="date" placeholder="" required>
+				<input id="dob" name="dob" type="date">
 			</p>
             <p>
             What's your gender?
 				
-				<input id="gender_male" name="gender_male" type="radio" placeholder="" required>
+				<input id="gender_male" name="gender_male" type="radio">
                 <label for="gender_male">Male</label>
-                <input id="gender_female" name="gender_female" type="radio" placeholder="" required>
+                <input id="gender_female" name="gender_female" type="radio">
                 <label for="gender_female">Female</label>
-                <input id="gender_none" name="gender_none" type="radio" placeholder="" required>
+                <input id="gender_none" name="gender_none" type="radio">
                 <label for="gender_none">None</label>
             </p>
             <p>
@@ -71,15 +90,17 @@
             <input type="checkbox" id="rememberme" name="rememberme" value="">
             <label for="rememberme">I agree to the Spotify terms & conditions and Privacy Policy.</label><br>
             </p>
+
 			<p>By clicking on Sign up, you agree to Spotify's <a href="#">Forgot your password?</a></p>
 			<p>To learn more about how Spotify collects, uses, shares and protects<br> your personal data please read Spotify's <a href="#">Privacy Policy.</a></p>
 
 
-			<button type="submit" name="loginButton">SIGN UP</button>
-
+			<button type="submit" name="registerButton">SIGN UP</button>
+			
             <p>Have an account ? <a href="#">Log in.</a></p>
 			
-		</form>
+		</form> <!-- register form ends here -->
+
 	</div>
 
 </body>
