@@ -1,12 +1,28 @@
 <?php
 	class Account {
-
+		private $con;
 		private $errorArray;
 
-		public function __construct() {
+		public function __construct($con) {
+			$this->con = $con;
 			$this->errorArray = array();
 		}
+		
+		public function login($un,$pw){
+			$pw = md5($pw);
 
+			$query = mysqli_query($this->con, "SELECT * FROM users WHERE username='$un' AND password='$pw'");
+
+			if(mysqli_num_rows($query) == 1) {
+				return true;
+			}
+			else {
+				array_push($this->errorArray, Constants::$loginFailed);
+				return false;
+			}
+
+
+		}
 		public function register($em, $em2, $pw, $un) {
 			
 			$this->validateEmails($em, $em2);
@@ -15,7 +31,7 @@
 
 			if(empty($this->errorArray) == true) {
 				//Insert into db
-				return true;
+				return $this->insertUserDetails($em, $em2, $pw, $un);
 			}
 			else {
 				return false;
@@ -29,6 +45,16 @@
 			}
 			return "<span class='errorMessage'>$error</span>";
 		}
+			//insert into DB function
+		private function insertUserDetails($em, $em2, $pw, $un){
+			$encryptedPw = md5($pw);
+			$profilePic = "assets/images/profile-pics/head_emerald.png";
+			$date = date("Y-m-d");
+			//echo "INSERT INTO users VALUES ('$em','$encryptedPw','$un','$date','$profilePic')";
+			$result = mysqli_query($this->con, "INSERT INTO users VALUES (null,'$em','$encryptedPw','$un','$date','$profilePic')");
+
+			return $result;
+		}
 
 		private function validateEmails($em, $em2) {
 			if($em != $em2) {
@@ -37,6 +63,11 @@
 			}
 			if(!filter_var($em, FILTER_VALIDATE_EMAIL)) {
 				array_push($this->errorArray, Constants::$emailInvalid);
+				return;
+			}
+			$checkEmailQuery = mysqli_query($this->con, "SELECT email FROM users WHERE email='$em'");
+			if(mysqli_num_rows($checkEmailQuery) != 0) {
+				array_push($this->errorArray, Constants::$emailTaken);
 				return;
 			}
 		}
@@ -61,10 +92,16 @@
 				array_push($this->errorArray, Constants::$usernameCharacters);
 				return;
 			}
-		}
-			//TODO: check if username exists	
+			$checkUsernameQuery = mysqli_query($this->con, "SELECT username FROM users WHERE username='$un'");
+			if(mysqli_num_rows($checkUsernameQuery) != 0) {
+				array_push($this->errorArray, Constants::$usernameTaken);
+				return;
+			}
 
-			//TODO: Check that username hasn't already been used
+		}
+				
+
+
 
 	
 

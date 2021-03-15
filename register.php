@@ -1,8 +1,9 @@
 <?php
+	include("includes/config.php");
 	include("includes/classes/Account.php");
 	include("includes/classes/Constants.php");
 
-	$account = new Account();
+	$account = new Account($con);
 
 	include("includes/handlers/register-handler.php");
 	include("includes/handlers/login-handler.php");
@@ -17,10 +18,12 @@
 
 <html>
 <head>
+<link rel="icon" href="includes/images/logo2.jpg" type="image/icon type">
+	<link rel="stylesheet" href="assets/css/register.css">
 	<title>Welcome to Spotify!</title>
 </head>
 <body>
-    	
+    <div id="background">
 	<div id="inputContainer">
 
 		<h1>To continue, log in to Spotify.</h1>
@@ -33,6 +36,8 @@
 			<p>
 				<label for="loginPassword">Password</label>
 				<input id="loginPassword" name="loginPassword" type="password" placeholder="password" required>
+				<?php echo $account->getError(Constants::$loginFailed); ?>
+
 			</p>
             <p><a href="#">Forgot your password?</a></p>
             <p><input type="checkbox" id="rememberme" name="rememberme" value="">
@@ -46,24 +51,35 @@
         <form id="registerForm" action="register.php" method="POST"> <!--register form starts from here -->
 			<h2>Create your free account</h2>
 			<p>
+				
 				<label for="email">What's your email?</label>
-				<input id="email" name="email" type="text" placeholder="Enter your email." required>
+				<input id="email" name="email" type="text" placeholder="Enter your email." value="<?php getInputValue('email') ?>" required>
+				<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
+				<?php echo $account->getError(Constants::$emailInvalid); ?>
+				<?php echo $account->getError(Constants::$emailTaken); ?>
 			</p>
             <p>
 				<label for="email2">Confirm your email.</label>
-				<input id="email2" name="email2" type="text" placeholder="Enter your email again." required>
+				<input id="email2" name="email2" type="text" placeholder="Enter your email again." value="<?php getInputValue('email2') ?>" required>
 			</p>
 
 			<p>
+				
 				<label for="password">Create a Password</label>
 				<input id="password" name="password" type="password" placeholder="Create a password." required>
+				<?php echo $account->getError(Constants::$passwordNotAlphanumeric); ?>
+				<?php echo $account->getError(Constants::$passwordCharacters); ?>
 			</p>
 
 			<p>
+				
 				<label for="userName">What should we call you?</label>
-				<input id="userName" name="userName" type="text" placeholder="Enter a profile name." required>
-			This appears on your profile.
+				<input id="userName" name="userName" type="text" placeholder="Enter a profile name." value="<?php getInputValue('userName') ?>" required>
+				<?php echo $account->getError(Constants::$usernameCharacters); ?>
+				<?php echo $account->getError(Constants::$usernameTaken); ?>
+			<!--This appears on your profile. -->
             </p>
+			<!--
             <p>
 				<label for="dob">What's your date of birth?</label>
 				<input id="dob" name="dob" type="date">
@@ -94,7 +110,7 @@
 			<p>By clicking on Sign up, you agree to Spotify's <a href="#">Forgot your password?</a></p>
 			<p>To learn more about how Spotify collects, uses, shares and protects<br> your personal data please read Spotify's <a href="#">Privacy Policy.</a></p>
 
-
+			-->
 			<button type="submit" name="registerButton">SIGN UP</button>
 			
             <p>Have an account ? <a href="#">Log in.</a></p>
@@ -102,6 +118,6 @@
 		</form> <!-- register form ends here -->
 
 	</div>
-
+	</div>
 </body>
 </html>
