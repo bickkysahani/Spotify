@@ -1,4 +1,47 @@
-#background{
-    color:blue;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+html, body{
+    padding:0;
+    margin: 0;
+    height: 100%;
+}
+#background {
+    background-color: pink;
+    background-image: url(../images/b.jpg);
+    background-position: center;
+    background-size: cover;
+    display: table;
+    height: 100%;
+    width: 100%;
+}
+#loginContainer * {
+	color: #fff;
+	font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+	font-weight: normal;
+	line-height: 1em;
+	box-sizing: border-box;
+}
+
+#loginContainer {
+	width: 80%;
+	margin: 0 auto;
+	position: relative;
+	max-width: 1024px;
+}
+#inputContainer {
+    width: 400px;
+    padding: 40px;
+    float:left;
+    border-right:1px solid;
+}
+#inputContainer h2{
+    text-align: center;
+}
+#inputContainer input[type="text"],
+#inputContainer input[type="email"]{
+    display: block;
+    background-color: transparent;
+    border: 0;
+    border-bottom: 1px solid #fff;
+    height: 27px;
+    line-height: 27px;
+    width: 100%;
 }
