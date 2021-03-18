@@ -19,8 +19,11 @@
 <html>
 <head>
 <link rel="icon" href="includes/images/logo2.jpg" type="image/icon type">
-	<link rel="stylesheet" href="assets/css/register.css">
 	<title>Welcome to Spotify!</title>
+	<link rel="stylesheet" href="assets/css/register.css">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
+	<script src="assets/js/register.js"></script>
 </head>
 <body>
     <div id="background">
