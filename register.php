@@ -22,10 +22,32 @@
 	<title>Welcome to Spotify!</title>
 	<link rel="stylesheet" href="assets/css/register.css">
 
-	<script src="https://ajax.googleapis.com/ajax/libs/cesiumjs/1.78/Build/Cesium/Cesium.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="assets/js/register.js"></script>
 </head>
+
 <body>
+	<?php
+
+	if(isset($_POST['registerButton'])) {
+		echo '<script>
+				$(document).ready(function() {
+					$("#loginForm").hide();
+					$("#registerForm").show();
+				});
+			</script>';
+	}
+	else {
+		echo '<script>
+				$(document).ready(function() {
+					$("#loginForm").show();
+					$("#registerForm").hide();
+				});
+			</script>';
+	}
+
+	?>
+
     <div id="background">
 		<div id="loginContainer">
 			<div id="inputContainer">
@@ -124,6 +146,15 @@
 					
 				</form> <!-- register form ends here -->
 
+			</div>
+			<div id="loginText">
+				<h1>Get great music, right now</h1>
+				<h2>Listen any songs for free</h2>
+				<ul>
+					<li>Discover great music</li>
+					<li>Creat your own playlists</li>
+					<li>Follow your favourite artist</li>
+				</ul>
 			</div>
 		</div>
 	</div>

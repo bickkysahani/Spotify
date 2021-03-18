@@ -65,7 +65,7 @@ html, body{
     width: 100%;
 }
 #inputContainer label{
-    color: #6b7f88;
+    color:#6fbcd4;
     font-size: 15px;
     margin-top: 15px;
 }
@@ -87,8 +87,35 @@ html, body{
 .hasAccountText span{
     font-weight:bold;
     font-size: 15px;
+    cursor: pointer;
 }
 .hasAccountText {
     text-align: center;
 }
+#registerForm,
+#loginForm {
+    display: none;
 }
+#loginText {
+    padding: 60px;
+    display: table-cell;
+}
+#loginText h1{
+    color: #07d159;
+    font-size: 60px;
+    font-weight: bold;
+}
+#loginText h2{
+    margin: 35px, 0;
+}
+#loginText ul {
+    padding: 0;
+}
+#loginText li {
+    font-size: 20px;
+    list-style-type: none;
+    padding: 10px 48px;
+    background: url(../images/icons/checkmark.png) no-repeat 0 0;
+}
+
+
