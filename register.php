@@ -56,7 +56,7 @@
 					<h2>Login to your account</h2>
 					<p>
 						<label for="loginUsername">Email address or username </label>
-						<input id="loginUsername" name="loginUsername" type="text" placeholder="Email address or username " required>
+						<input id="loginUsername" name="loginUsername" type="text" placeholder="Email address or username " value="<?php getInputValue('loginUsername') ?>"required>
 					</p>
 					<p>
 						<label for="loginPassword">Password</label>
@@ -79,7 +79,7 @@
 					<h2>Create your free account</h2>
 					<p>
 						
-						<label for="email">What's your email?</label>
+						<label for="email">Email</label>
 						<input id="email" name="email" type="text" placeholder="Enter your email." value="<?php getInputValue('email') ?>" required>
 						<?php echo $account->getError(Constants::$emailsDoNotMatch); ?>
 						<?php echo $account->getError(Constants::$emailInvalid); ?>

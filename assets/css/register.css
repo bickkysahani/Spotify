@@ -5,7 +5,7 @@ html, body{
 }
 #background {
     background-color: pink;
-    background-image: url(../images/b.jpg);
+    background-image: url(../images/a.jpg);
     background-position: center;
     background-size: cover;
     display: table;
@@ -65,7 +65,7 @@ html, body{
     width: 100%;
 }
 #inputContainer label{
-    color:#6fbcd4;
+    color: #101721;
     font-size: 15px;
     margin-top: 15px;
 }
@@ -116,6 +116,11 @@ html, body{
     list-style-type: none;
     padding: 10px 48px;
     background: url(../images/icons/checkmark.png) no-repeat 0 0;
+}
+#inputContainer .errorMessage {
+    color: #07d159;
+    font-size: 12px;
+    display: block;
 }
 
 
