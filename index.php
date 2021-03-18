@@ -23,7 +23,7 @@ else {
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
 <body>
-    
+    <h1>Listening is Everything!</h1>
     <div id="nowPlayingBarContainer">
           <div id="nowPlayingBar">
 
