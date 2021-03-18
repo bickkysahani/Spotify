@@ -26,6 +26,24 @@ html, body{
 	position: relative;
 	max-width: 1024px;
 }
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #fff;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #fff;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #fff;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #fff;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #fff;
+}
+
 #inputContainer {
     width: 400px;
     padding: 40px;
@@ -36,7 +54,8 @@ html, body{
     text-align: center;
 }
 #inputContainer input[type="text"],
-#inputContainer input[type="email"]{
+#inputContainer input[type="email"],
+#inputContainer input[type="password"]{
     display: block;
     background-color: transparent;
     border: 0;
@@ -44,4 +63,32 @@ html, body{
     height: 27px;
     line-height: 27px;
     width: 100%;
+}
+#inputContainer label{
+    color: #6b7f88;
+    font-size: 15px;
+    margin-top: 15px;
+}
+#inputContainer button{
+    background-color: transparent;
+    border: 2px solid #fff;
+    border-radius: 250px;
+    color: #fff;
+    display: block;
+    font-size: 15px;
+    letter-spacing: 1px;
+    margin: 24px auto;
+    height: 41px;
+    width: 100%;
+}
+#inputContainer button:hover{
+    cursor: pointer;
+}
+.hasAccountText span{
+    font-weight:bold;
+    font-size: 15px;
+}
+.hasAccountText {
+    text-align: center;
+}
 }

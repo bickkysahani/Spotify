@@ -27,7 +27,6 @@
 		<div id="loginContainer">
 			<div id="inputContainer">
 
-				<h1>To continue, log in to Spotify.</h1>
 				<form id="loginForm" action="register.php" method="POST"> <!-- login form starts from here -->
 					<h2>Login to your account</h2>
 					<p>
@@ -44,11 +43,13 @@
 					<p><input type="checkbox" id="rememberme" name="rememberme" value="">
 					<label for="rememberme">Remember me</label><br></p>
 					<button type="submit" name="loginButton">LOG IN</button>
-					<p>Don't have an account?</p>
-					<button type="submit" name="signupButton">SIGN UP FOR SPOTIFY</button>
+					
+					<div class="hasAccountText">
+						<span id="hideLogin">Don't have an account yet? Signup here.</span>
+					</div>
 				</form> <!-- login form ends here -->
 		
-				<h1>Sign up for free to start listening.</h1>
+				
 				<form id="registerForm" action="register.php" method="POST"> <!--register form starts from here -->
 					<h2>Create your free account</h2>
 					<p>
@@ -114,7 +115,9 @@
 					-->
 					<button type="submit" name="registerButton">SIGN UP</button>
 					
-					<p>Have an account ? <a href="#">Log in.</a></p>
+					<div class="hasAccountText">
+						<span id="hideRegister">Already have an account? Log in here.</span>
+					</div>
 					
 				</form> <!-- register form ends here -->
 
